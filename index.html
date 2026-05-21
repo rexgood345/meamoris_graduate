@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Graduation 🎓</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Global sparkle background canvas -->
+  <canvas id="globalSparkle" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
+
+  <!-- ========== INTRO / ENVELOPE SECTION ========== -->
+  <section id="intro" class="intro-section">
+    <div class="stars" id="stars"></div>
+
+    <!-- Background blur overlay -->
+    <div class="intro-bg"></div>
+
+    <div class="envelope-scene" id="envelopeScene">
+
+      <!-- THE ENVELOPE -->
+      <div class="env-wrapper" id="envelopeWrapper">
+
+        <!-- Flap (top) -->
+        <div class="env-flap" id="envelopeFlap">
+          <div class="env-flap-inner"></div>
+        </div>
+
+        <!-- Envelope front face -->
+        <div class="env-front">
+          <!-- Italic text on envelope -->
+          <div class="env-text">
+            <span class="env-text-line1">The Sunrise</span>
+            <span class="env-text-line2">AFTER</span>
+            <span class="env-text-line3">Your Longest Night</span>
+          </div>
+          <!-- Wax seal -->
+          <div class="wax-seal" id="waxSeal">
+            <div class="wax-seal-inner">
+              <span class="wax-icon">🕊️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Envelope shadow -->
+        <div class="env-shadow"></div>
+      </div>
+
+      <!-- Hint text below envelope -->
+      <p class="open-text" id="openText">✨ Open the letter... ✨</p>
+      <p class="click-hint">[ klik icon amplop untuk membuka ]</p>
+    </div>
+
+    <!-- LETTER / SURAT yang keluar dari amplop -->
+    <div class="letter-popup" id="letterPopup">
+      <div class="letter-paper" id="letterPaper">
+        <div class="letter-deco-top"></div>
+        <h2 class="letter-title">Congratulations!</h2>
+        <div class="letter-grad-icon">🎓</div>
+        <div class="letter-body">
+          <p class="letter-line" style="--i:0">Untuk teman-teman semua yang luar biasa,</p>
+          <p class="letter-line" style="--i:1">Setelah begitu banyak malam tanpa tidur,</p>
+          <p class="letter-line" style="--i:2">air mata yang jatuh diam-diam,</p>
+          <p class="letter-line" style="--i:3">dan keraguan yang hampir membuatmu berhenti —</p>
+          <p class="letter-line letter-bold" style="--i:4">kalian akhirnya berhasil. 🌟</p>
+          <p class="letter-line" style="--i:5">Setiap perjuangan yang kalian lalui,</p>
+          <p class="letter-line" style="--i:6">setiap pengorbanan yang tak terlihat,</p>
+          <p class="letter-line" style="--i:7">semua itu akan berbuah indah pada saat nya.</p>
+          <p class="letter-line letter-bold" style="--i:8">Aku sangat bangga dengan kalian semua. 💛</p>
+          <p class="letter-line letter-italic" style="--i:9">"The tassel was worth the hassle."</p>
+        </div>
+        <div class="letter-sign">
+          <span>— Dengan cinta &amp; kebanggaan</span>
+          <span class="letter-sign-name">✨ Happy Graduation ✨</span>
+        </div>
+        <div class="letter-deco-bottom"></div>
+        <button class="letter-btn" id="letterBtn">Lihat Kenangan Kita →</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========== MAIN CONTENT (hidden initially) ========== -->
+  <div id="mainContent" class="main-content hidden">
+
+    <!-- ========== HERO / GREETING SECTION ========== -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-sub fade-in-up delay-1">Selamat &amp; Sukses</p>
+        <h1 class="hero-title fade-in-up delay-2">Happy Graduation</h1>
+        <p class="hero-name fade-in-up delay-3">for all</p>
+        <div class="divider fade-in-up delay-4"></div>
+        <p class="hero-quote fade-in-up delay-5">
+          "The tassel was worth the hassle."<br/>
+          <span>Setiap perjuangan yang kamu lalui, setiap malam yang kamu habiskan,<br/>semuanya akan indah pada saatnya. 🌸</span>
+        </p>
+        <div class="scroll-hint fade-in-up delay-6">
+          <span>scroll ke bawah</span>
+          <div class="scroll-arrow">↓</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PHOTO SECTION 1 (6 foto pertama) ========== -->
+    <section class="photo-section">
+      <div class="section-header">
+        <h2 class="section-title">The Midnight Battles You<br/><em>Won in Silence</em></h2>
+        <p class="section-sub">Momen-momen yang membentukmu menjadi luar biasa ✨</p>
+      </div>
+
+      <div class="polaroid-grid">
+        <!-- Polaroid 1 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/cdv1.jpeg" alt="Foto 1" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 1</div>
+          </div>
+          <p class="polaroid-caption">Late night study 🌙</p>
+        </div>
+        <!-- Polaroid 2 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/cdv2.1.jpeg" alt="Foto 2" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 2</div>
+          </div>
+          <p class="polaroid-caption">Kerja keras 🌸</p>
+        </div>
+        <!-- Polaroid 3 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/cdv3.jpeg" alt="Foto 3" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 3</div>
+          </div>
+          <p class="polaroid-caption">Fokus & semangat ✍️</p>
+        </div>
+        <!-- Polaroid 4 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/ea6.jpeg" alt="Foto 4" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 4</div>
+          </div>
+          <p class="polaroid-caption">Pantang menyerah 🔥</p>
+        </div>
+      </div>
+
+      <!-- Baris 2: teks kiri | foto 5 | foto 6 | teks kanan -->
+      <div class="polaroid-row2">
+
+        <!-- Teks kiri — berjalan vertikal -->
+        <div class="fq-ticker-wrap fq-ticker-left">
+          <div class="fq-ticker">
+            <span>"Kamu tidak harus sempurna untuk menjadi luar biasa"</span>
+            <span>✦</span>
+            <span>"Setiap langkah kecil membawamu ke sini"</span>
+            <span>✦</span>
+            <span>"Perjuanganmu tidak sia-sia"</span>
+            <span>✦</span>
+            <span>"Kamu lebih kuat dari yang kamu kira"</span>
+            <span>✦</span>
+            <span>"Kamu tidak harus sempurna untuk menjadi luar biasa"</span>
+            <span>✦</span>
+            <span>"Setiap langkah kecil membawamu ke sini"</span>
+            <span>✦</span>
+            <span>"Perjuanganmu tidak sia-sia"</span>
+            <span>✦</span>
+            <span>"Kamu lebih kuat dari yang kamu kira"</span>
+            <span>✦</span>
+          </div>
+        </div>
+
+        <!-- Foto 5 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/cdv5.jpeg" alt="Foto 5" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 5</div>
+          </div>
+          <p class="polaroid-caption">Momen berharga 🌟</p>
+        </div>
+
+        <!-- Foto 6 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/cdv4.jpeg" alt="Foto 6" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 6</div>
+          </div>
+          <p class="polaroid-caption">Semangat juang 🌈</p>
+        </div>
+
+        <!-- Teks kanan — berjalan vertikal (arah balik) -->
+        <div class="fq-ticker-wrap fq-ticker-right">
+          <div class="fq-ticker fq-ticker-reverse">
+            <span>"Ini bukan akhir — ini awalnya"</span>
+            <span>✦</span>
+            <span>"Dunia menunggumu dengan segala kemungkinan indah"</span>
+            <span>✦</span>
+            <span>"Bangga dengan dirimu sendiri"</span>
+            <span>✦</span>
+            <span>"Mimpimu layak untuk diperjuangkan"</span>
+            <span>✦</span>
+            <span>"Ini bukan akhir — ini awalnya"</span>
+            <span>✦</span>
+            <span>"Dunia menunggumu dengan segala kemungkinan indah"</span>
+            <span>✦</span>
+            <span>"Bangga dengan dirimu sendiri"</span>
+            <span>✦</span>
+            <span>"Mimpimu layak untuk diperjuangkan"</span>
+            <span>✦</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sparkle canvas untuk efek kelap-kelip -->
+      <canvas class="sparkle-canvas" id="sparkleCanvas1"></canvas>
+
+    </section>
+    <!-- ========== PHOTO SECTION 2 (foto kedua) ========== -->
+    <section class="photo-section photo-section-2">
+
+      <!-- Dekorasi header section 2 -->
+      <div class="sec2-deco">
+        <!-- Garis horizontal kiri-kanan -->
+        <div class="sec2-line sec2-line-left"></div>
+        <div class="sec2-line sec2-line-right"></div>
+        <!-- Partikel mengambang -->
+        <div class="sec2-particles" id="sec2Particles"></div>
+        <!-- Ornamen sudut -->
+        <div class="sec2-corner sec2-corner-tl">✦</div>
+        <div class="sec2-corner sec2-corner-tr">✦</div>
+      </div>
+
+      <div class="section-header sec2-header">
+        <h2 class="section-title">Memories That Will<br/><em>Last Forever</em></h2>
+        <p class="section-sub">Kenangan indah yang selalu kita simpan 💛</p>
+        <!-- Marquee teks berjalan -->
+        <div class="sec2-marquee-wrap">
+          <div class="sec2-marquee">
+            <span>Bersama kalian adalah kenangan terindah</span><span class="dot">✦</span>
+            <span>Tawa yang tak pernah terlupakan</span><span class="dot">✦</span>
+            <span>Setiap momen berharga untuk dikenang</span><span class="dot">✦</span>
+            <span>Persahabatan yang melampaui waktu</span><span class="dot">✦</span>
+            <span>Kita telah melewati segalanya bersama</span><span class="dot">✦</span>
+            <span>Bersama kalian adalah kenangan terindah</span><span class="dot">✦</span>
+            <span>Tawa yang tak pernah terlupakan</span><span class="dot">✦</span>
+            <span>Setiap momen berharga untuk dikenang</span><span class="dot">✦</span>
+            <span>Persahabatan yang melampaui waktu</span><span class="dot">✦</span>
+            <span>Kita telah melewati segalanya bersama</span><span class="dot">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="polaroid-grid">
+        <!-- Polaroid 7 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/ea4.jpeg" alt="Foto 7" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 7</div>
+          </div>
+          <p class="polaroid-caption">Bersama teman 🤝</p>
+        </div>
+        <!-- Polaroid 8 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/reaf6.jpeg" alt="Foto 8" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 8</div>
+          </div>
+          <p class="polaroid-caption">Bersama teman 🤝</p>
+        </div>
+        <!-- Polaroid 9 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/ea7.jpeg" alt="Foto 9" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 9</div>
+          </div>
+          <p class="polaroid-caption">Semangat juang</p>
+        </div>
+        <!-- Polaroid 10 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/reaf5.jpeg" alt="Foto 10" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 10</div>
+          </div>
+          <p class="polaroid-caption">Semangat unlimited 💪 </p>
+        </div>
+        <!-- Polaroid 11 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/ea1.jpeg" alt="Foto 11" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 11</div>
+          </div>
+          <p class="polaroid-caption">Tak terlupakan</p>
+        </div>
+        <!-- Polaroid 12 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/ea2.jpeg" alt="Foto 12" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 12</div>
+          </div>
+          <p class="polaroid-caption">Tak terlupakan</p>
+        </div>
+        <!-- Polaroid 13 -->
+        <div class="polaroid tilt-right">
+          <div class="polaroid-img-wrap">
+            <img src="photos/reaf3.jpeg" alt="Foto 13" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 13</div>
+          </div>
+          <p class="polaroid-caption"> Graduate 🎓 </p>
+        </div>
+        <!-- Polaroid 14 -->
+        <div class="polaroid tilt-left">
+          <div class="polaroid-img-wrap">
+            <img src="photos/reaf2.jpeg" alt="Foto 14" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="polaroid-placeholder">📸<br/>Foto 14</div>
+          </div>
+          <p class="polaroid-caption">Selamanya dikenang  🎓💖</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MESSAGE + PHOTO SECTION ========== -->
+    <section class="message-section">
+      <!-- Sparkle strip bagian atas -->
+      <canvas class="top-sparkle-canvas" id="msgSparkleCanvas"></canvas>
+      <div class="message-container">
+        <div class="message-text">
+          <h2 class="message-title">Untuk Kamu yang<br/><em>Tidak Pernah Menyerah</em></h2>
+          <p>
+            Aku tahu perjalananmu tidak mudah. Ada hari-hari di mana kamu ingin berhenti,
+            ada malam-malam yang terasa sangat panjang, ada momen di mana kamu meragukan dirimu sendiri.
+            Tapi semua nya kita lawan!!!!
+          </p>
+          <p>
+            Tapi kamu tetap berdiri. Kamu tetap berjalan. Dan hari ini, kamu membuktikan
+            bahwa semua itu sepadan. 🎓
+          </p>
+          <p class="message-highlight">
+            "Selamat, kamu sudah melakukannya! Dunia menunggumu dengan segala kemungkinan yang indah."
+          </p>
+          <p class="message-sign">— Dengan bangga & cinta 💛</p>
+        </div>
+        <div class="message-photo">
+          <div class="photo-frame">
+            <img src="photos/cdv7.jpeg" alt="Main Photo" onerror="this.parentElement.classList.add('no-img-frame')" />
+            <div class="photo-frame-placeholder">🎓<br/>Foto Utama</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIDEO SECTION ========== -->
+    <section class="video-section">
+      <!-- Sparkle strip bagian atas -->
+      <canvas class="top-sparkle-canvas" id="vidSparkleCanvas"></canvas>
+      <div class="section-header light">
+        <h2 class="section-title">Perjalanan yang<br/><em>Tak Terlupakan</em></h2>
+        <p class="section-sub">Kenangan yang akan selalu kita ingat 🎬</p>
+      </div>
+
+      <div class="video-grid">
+        <!-- Video 1 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb1.jpg">
+              <source src="videos/cdvv1.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 1<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Tiktokan dulu loh ya💫</p>
+        </div>
+        <!-- Video 2 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb2.jpg">
+              <source src="videos/reafv1.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 2<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Kenangan Bersama 💫</p>
+        </div>
+        <!-- Video 3 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb3.jpg">
+              <source src="videos/cvdd4.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 3<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Laporan ke KDM </p>
+        </div>
+        <!-- Video 4 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb4.jpg">
+              <source src="videos/cvdd5.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 4<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Transaksi ilegal</p>
+        </div>
+        <!-- Video 5 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb5.jpg">
+              <source src="videos/cvdd33.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 5<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Bos Tongkang 🔥</p>
+        </div>
+        <!-- Video 6 -->
+        <div class="video-card">
+          <div class="video-wrap">
+            <video controls poster="photos/thumb6.jpg">
+              <source src="videos/cvdd2.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+            <div class="video-placeholder">🎬<br/>Video 6<br/><small>Ganti dengan video kamu</small></div>
+          </div>
+          <p class="video-caption">Sampai Jumpa Lagi 👋</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CLOSING SECTION ========== -->
+    <section class="closing-section">
+      <div class="closing-content">
+        <div class="closing-emoji">🎓✨🌸</div>
+        <h2 class="closing-title">Thanks</h2>
+        <p class="closing-name" id="closingName">For Alll</p>
+        <p class="closing-thanks" id="closingThanks">Terima kasih atas kenangan yang tak terlupakan, semuanya akan selalu tersimpan di hati. 💛</p>
+        <p class="closing-text" id="closingText">
+          Ini bukan akhir dari perjalanan,<br/>
+          ini adalah awal dari babak baru yang lebih indah.<br/>
+          <strong>Fly high, dream big. 🚀</strong>
+        </p>
+        <div class="closing-divider"></div>
+        <p class="closing-from">See you nextime 🤍 </p>
+        <p class="closing-copyright">© 2026 rexgood. All rights reserved.</p>
+      </div>
+      <!-- Floating petals -->
+      <div class="petals" id="petals"></div>
+    </section>
+
+  </div><!-- end mainContent -->
+
+  <!-- Audio element -->
+  <audio id="bgMusic" loop>
+    <source src="music/where.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Music toggle button -->
+  <button class="music-btn hidden" id="musicBtn" title="Toggle Music">🎵</button>
+
+  <!-- ========== LIGHTBOX POPUP ========== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto preview">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Tutup">✕</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Foto sebelumnya">‹</button>
+      <button class="lightbox-next" id="lightboxNext" aria-label="Foto berikutnya">›</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="" />
+        <div class="lightbox-loader" id="lightboxLoader"></div>
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
